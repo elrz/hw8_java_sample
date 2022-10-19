@@ -6,11 +6,36 @@ pipeline{
         git 'Default'
     }
 
-    stages {
-        stage ('test'){
-            steps{
-                sh 'mvn --version'
+    parameters {
+        string (name: 'TAG', defaulValue: "latest")
+        booleanParam(name: 'SKIP_TEST', defaulValue: false)
+        booleanParam(name: 'SKIP_PUBLISH_IMAGE' defaulValue: false)
+        
+    }
 
+    stages {
+        stage ('Build'){
+            steps{
+                sh 'mvn clean packege'
+                
+            }
+        }
+        stages ('Run test'){
+            steps{
+                sh 'mvn clean test'
+            }
+        }
+
+        stages ('Docker build'){
+            steps{
+
+                sh 'uname -a'
+            }
+        }
+        stages ('Docker push'){
+            steps{
+
+                sh 'pwd'
             }
         }
     }
