@@ -7,7 +7,7 @@ pipeline{
     }
 
     parameters {
-        string (name: 'TAG', defaulValue: "latest")
+        string (name: 'TAG', defaultValue: "latest")
         booleanParam(name: 'SKIP_TEST', defaultValue: false)
         booleanParam(name: 'SKIP_PUBLISH_IMAGE', defaultValue: false)
         
