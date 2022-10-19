@@ -8,8 +8,8 @@ pipeline{
 
     parameters {
         string (name: 'TAG', defaulValue: "latest")
-        booleanParam(name: 'SKIP_TEST', defaulValue: false)
-        booleanParam(name: 'SKIP_PUBLISH_IMAGE' defaulValue: false)
+        booleanParam(name: 'SKIP_TEST', defaultValue: false)
+        booleanParam(name: 'SKIP_PUBLISH_IMAGE' defaultValue: false)
         
     }
 
