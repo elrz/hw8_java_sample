@@ -20,19 +20,19 @@ pipeline{
                 
             }
         }
-        stages ('Run test'){
+        stage ('Run test'){
             steps{
                 sh 'mvn clean test'
             }
         }
 
-        stages ('Docker build'){
+        stage ('Docker build'){
             steps{
 
                 sh 'uname -a'
             }
         }
-        stages ('Docker push'){
+        stage ('Docker push'){
             steps{
 
                 sh 'pwd'
