@@ -29,7 +29,7 @@ pipeline{
         stage ('Docker build'){
             steps{
 
-                sh 'uname -a'
+                sh 'docker build -t java-sample:latest .'
             }
         }
         stage ('Docker push'){
