@@ -33,7 +33,7 @@ pipeline{
            
             steps{
 
-                sh 'docker build -t java-sample:${TAG} .'
+                sh 'docker build -t routeg/java-sample:${TAG} .'
             }
         }
         stage ('Docker push'){
