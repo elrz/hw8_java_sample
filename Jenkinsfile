@@ -1,5 +1,5 @@
 pipeline{
-    agent master
+    agent none
 
     tools {
         maven 'maven 3.8.6'
