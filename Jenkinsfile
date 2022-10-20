@@ -19,18 +19,31 @@ pipeline{
         //     }
         // }
         stage ('Run test'){
+            when {
+                expression{
+                    return params.SKIP_TEST == false;
+                }
+            }
             steps{
                 sh 'mvn clean test'
             }
         }
 
         stage ('Docker build'){
+           
             steps{
 
                 sh 'docker build -t java-sample:latest .'
             }
         }
         stage ('Docker push'){
+             when {
+                expression {
+                    return params.SKIP_PUBLISH_IMAGE == false;
+                }
+            }
+
+            
             steps{
 
                 sh 'pwd'
