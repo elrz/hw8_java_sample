@@ -33,7 +33,7 @@ pipeline{
            
             steps{
 
-                sh 'docker build -t java-sample:latest .'
+                sh 'docker build -t java-sample:${TAG} .'
             }
         }
         stage ('Docker push'){
@@ -45,8 +45,9 @@ pipeline{
 
             
             steps{
-
-                sh 'pwd'
+                withDockerRegistry(url: 'https://index.docker.io/v1/', credentialsId: 'dockerhub-token') {
+                    sh 'docker push routeg/java-sample:${TAG}'
+                }
             }
         }
     }
