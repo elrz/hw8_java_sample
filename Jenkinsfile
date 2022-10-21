@@ -11,7 +11,6 @@ pipeline{
 
 
     options {
-        timestamps
         disableConcurrentBuilds()
         preserveStashes buildCount: 10
     }
