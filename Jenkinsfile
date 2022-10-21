@@ -5,6 +5,18 @@ pipeline{
         maven 'maven 3.8.6'
     }
 
+    triggers {
+        cron ' 0 5 * * *'
+    }
+
+
+    options {
+        timestamps
+        disableConcurrentBuilds()
+        preserveStashes buildCount: 10
+    }
+
+
     parameters {
         string (name: 'TAG', defaultValue: "latest")
         booleanParam(name: 'SKIP_TEST', defaultValue: false)
