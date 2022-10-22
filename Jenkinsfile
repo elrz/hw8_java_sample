@@ -23,12 +23,12 @@ pipeline{
     }
 
     stages {
-        // stage ('Build'){
-        //     steps{
-        //         sh 'mvn clean packege'
+        stage ('Build'){
+            steps{
+                sh 'mvn clean packege'
                 
-        //     }
-        // }
+            }
+        }
         stage ('Run test'){
             when {
                 expression{
